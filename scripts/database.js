@@ -54,6 +54,10 @@ const database = {
         return database.cones.map(cone => ({...cone}))
     }
 
+    export const getFlavors = () => {
+        return database.flavors.map(flavor => ({...flavor}))
+    }
+
     export const setToppings = (id) => {
     database.orderBuilder.toppingId = id
     }
@@ -61,3 +65,9 @@ const database = {
     export const setCones = (id) => {
     database.orderBuilder.conesId = id
     }
+
+    export const setFlavors = (id) => {
+        database.orderBuilder.flavorsId = id
+        }
+
+    
