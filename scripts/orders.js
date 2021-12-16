@@ -11,7 +11,7 @@ const buildOrderListItem = (order) => {
 
 
     // Remember that the function you pass to find() must return true/false
-    const foundCones = cones.find(
+    const foundCone = cones.find(
         (cone) => {
             return cone.id === order.coneId
         }
@@ -36,7 +36,7 @@ const buildOrderListItem = (order) => {
     )
 
 
-    const totalCost = foundCones.price + foundFlavor.price + foundTopping.price
+    const totalCost = foundCone.price + foundFlavor.price + foundTopping.price
 
     const costString = totalCost.toLocaleString("en-US", {
         style: "currency",

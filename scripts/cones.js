@@ -16,7 +16,7 @@ export const Cones = () => {
 
     const listItems = cones.map(cone => {
         return `<li>
-            <input type="radio" name="cone" value="${cone.id}" /> ${cone.name}
+            <input type="radio" name="cone" value="${cone.id}" /> ${cone.type}
         </li>`
     })
 
