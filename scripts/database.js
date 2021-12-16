@@ -19,7 +19,7 @@ const database = {
         { id: 3, type: "Beer and Bar Nuts", price: 3 },
         { id: 4, type: "Cereal Milk", price: 6 } 
     ],
-    size: [
+    sizes: [
         { id: 1, type: "a", price: 1 },
         { id: 2, type: "b", price: 1 },
         { id: 3, type: "c", price: 1 },
@@ -54,8 +54,16 @@ export const getCones = () => {
     return database.cones.map(cone => ({...cone}))
 }
 
+export const getSizes = () => {
+    return database.sizes.map(size => ({...size}))
+}
+
 export const getFlavors = () => {
     return database.flavors.map(flavor => ({...flavor}))
+}
+
+export const getOrders = () => {
+    return database.customOrders.map(order => ({...order}))
 }
 
 export const setToppings = (id) => {
@@ -63,11 +71,14 @@ database.orderBuilder.toppingId = id
 }
 
 export const setCones = (id) => {
-database.orderBuilder.conesId = id
+database.orderBuilder.coneId = id
 }
 
 export const setFlavors = (id) => {
-    database.orderBuilder.flavorsId = id
-    }
+    database.orderBuilder.flavorId = id
+}
 
-    
+
+export const addCustomOrder = () => {
+    return database.toppings.map(order => ({...order}))
+}
