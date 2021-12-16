@@ -5,8 +5,6 @@
 
 */
 const database = {
-    orderBuilder: {},
-
     cones: [
         { id: 1, type: "kiddie", price: 1 },
         { id: 2, type: "cake", price: 2 },
@@ -34,43 +32,82 @@ const database = {
     customOrders: [
         {
             id: 1,
-            conesId: 3,
+            coneId: 3,
             sizeId: 2,
-            toppingsId: 3,
+            flavorId: 2,
+            toppingId: 3,
             timestamp: 1614659931693
         }
-    ]
-
+    ],
+    orderBuilder: {},
 }
 
+
+
+
+export const getToppings = () => {
+    return database.toppings.map(topping => ({...topping}))
+}
+
+export const getCones = () => {
+    return database.cones.map(cone => ({...cone}))
+}
+
+
 //  Getters:
-    export const getSizes = () => {
-        return database.sizes.map(size => ({...size}))
-    }
+export const getSizes = () => {
+    return database.sizes.map(size => ({...size}))
+}
 
-    export const getToppings = () => {
-        return database.toppings.map(topping => ({...topping}))
-    }
+export const getFlavors = () => {
+    return database.flavors.map(flavor => ({...flavor}))
+}
 
-    export const getCones = () => {
-        return database.cones.map(cone => ({...cone}))
-    }
+export const getOrders = () => {
+    return database.customOrders.map(order => ({...order}))
+}
 
-//  export const getFlavors = () => {}
 
 //  Setters:
     export const setSize = (id) => {
         database.orderBuilder.sizeId = id
     }
 
-    export const setToppings = (id) => {
+
+export const setToppings = (id) => {
     database.orderBuilder.toppingId = id
-    }
+}
+
+export const setCones = (id) => {
+    database.orderBuilder.coneId = id
+}
+
+export const setFlavors = (id) => {
+    database.orderBuilder.flavorId = id
+}
+
+
+export const addCustomOrder = () => {
+    // Copy the current state of user choices
+    const newOrder = {...database.orderBuilder}
+
+    // Add a new primary key to the object
+    const lastIndex = database.customOrders.length - 1
+    newOrder.id = database.customOrders[lastIndex].id + 1
+
+    // Add a timestamp to the order
+    newOrder.timestamp = Date.now()
+
+    // Add the new order object to custom orders state
+    database.customOrders.push(newOrder)
+
+    // Reset the temporary state for user choices
+    database.orderBuilder = {}
+
 
     export const setCones = (id) => {
     database.orderBuilder.conesId = id
     }
 
-//  export const setFlavors = (id) => {}
-
-//  Order functions:
+    // Broadcast a notification that permanent state has changed
+    document.dispatchEvent(new CustomEvent("stateChanged"))

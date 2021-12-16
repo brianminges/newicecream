@@ -8,10 +8,9 @@ import { addCustomOrder } from "./database.js"
 
 document.addEventListener(
     "click",
-    (clickEvent) => {
-        const itemClicked = clickEvent.target
-        if(itemClicked.id.startsWith("orderButton")) {
-            return addCustomOrder()
+    (event) => {
+    if (event.target.id === "orderButton") {
+        addCustomOrder()
         }
     }
 )
@@ -46,7 +45,13 @@ export const iceCream = () => {
 
         <article class="customOrders">
             <h2>Gob Orders</h2>
-            ${orders()}
+                ${Orders()}
         </article>
     `
 }
+
+
+{/* <section class="choices__sizes options">
+<h2>Sizes</h2>
+${Sizes()}
+</section> */}

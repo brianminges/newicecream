@@ -1,6 +1,6 @@
 import { getFlavors, setFlavors  } from "./database.js"
 
-const flavors = getFlavors ()
+const flavors = getFlavors()
 
 document.addEventListener(
     "change",
@@ -17,7 +17,7 @@ export const Flavors = () => {
     // Use .map() for converting objects to <li> elements
     const listItems = flavors.map(flavor => {
         return `<li>
-            <input type="radio" name="size" value="${flavor.id}" /> ${flavor.flavor}
+            <input type="radio" name="flavor" value="${flavor.id}" /> ${flavor.type}
         </li>`
     })
 

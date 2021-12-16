@@ -6,7 +6,7 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "cone") {
-            setCones(parseInt(event.target.name))
+            setCones(parseInt(event.target.value))
         }
     }
 )
@@ -16,7 +16,7 @@ export const Cones = () => {
 
     const listItems = cones.map(cone => {
         return `<li>
-            <input type="radio" name="cone" value="${cone.id}" /> ${cone.name}
+            <input type="radio" name="cone" value="${cone.id}" /> ${cone.type}
         </li>`
     })
 
