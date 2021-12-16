@@ -1,8 +1,8 @@
-import { flavors } from "./flavors.js"
-import { cones} from "./cones.js"
+import { Flavors } from "./flavors.js"
+import { Cones} from "./cones.js"
 import { orders } from "./orders.js"
-import { toppings } from "./toppings.js"
-import { sizes } from "./sizes.js"
+import { Toppings } from "./toppings.js"
+import { Sizes } from "./sizes.js"
 import { addCustomOrder } from "./database.js"
 
 
@@ -27,15 +27,15 @@ export const iceCream = () => {
             </section>
             <section class="choices__sizes options">
                 <h2>Sizes</h2>
-                ${sizes()}
+                ${Sizes()}
             </section>
             <section class="choices__flavors options">
                 <h2>Flavors</h2>
-                ${flavors()}
+                ${Flavors()}
             </section>
             <section class="choices__toppings options">
                 <h2>Toppings</h2>
-                ${toppings()}
+                ${Toppings()}
             </section>
         </article>
 

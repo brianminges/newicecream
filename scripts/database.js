@@ -19,11 +19,11 @@ const database = {
         { id: 3, type: "Beer and Bar Nuts", price: 3 },
         { id: 4, type: "Cereal Milk", price: 6 } 
     ],
-    size: [
-        { id: 1, type: "a", price: 1 },
-        { id: 2, type: "b", price: 1 },
-        { id: 3, type: "c", price: 1 },
-        { id: 4, type: "d", price: 1 } 
+    sizes: [
+        { id: 1, name: "Mini Me", price: 1.50 },
+        { id: 2, name: "Small Fry", price: 2.75 },
+        { id: 3, name: "Average Joe", price: 4.00 },
+        { id: 4, name: "Monstrosity", price: 6.50 } 
     ],
     toppings: [
         { id: 1, name: "sprinkles", price: .50},
@@ -43,8 +43,10 @@ const database = {
 
 }
 
-
-
+//  Getters:
+    export const getSizes = () => {
+        return database.sizes.map(size => ({...size}))
+    }
 
     export const getToppings = () => {
         return database.toppings.map(topping => ({...topping}))
@@ -54,6 +56,13 @@ const database = {
         return database.cones.map(cone => ({...cone}))
     }
 
+//  export const getFlavors = () => {}
+
+//  Setters:
+    export const setSize = (id) => {
+        database.orderBuilder.sizeId = id
+    }
+
     export const setToppings = (id) => {
     database.orderBuilder.toppingId = id
     }
@@ -61,3 +70,7 @@ const database = {
     export const setCones = (id) => {
     database.orderBuilder.conesId = id
     }
+
+//  export const setFlavors = (id) => {}
+
+//  Order functions:
