@@ -6,7 +6,7 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "cone") {
-            setCones(parseInt(event.target.name))
+            setCones(parseInt(event.target.value))
         }
     }
 )

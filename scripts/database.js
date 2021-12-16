@@ -5,8 +5,6 @@
 
 */
 const database = {
-    orderBuilder: {},
-
     cones: [
         { id: 1, type: "kiddie", price: 1 },
         { id: 2, type: "cake", price: 2 },
@@ -35,13 +33,13 @@ const database = {
         {
             id: 1,
             coneId: 3,
-            // sizeId: 2,
+            sizeId: 2,
             flavorId: 2,
             toppingId: 3,
             timestamp: 1614659931693
         }
-    ]
-
+    ],
+    orderBuilder: {},
 }
 
 
@@ -67,16 +65,18 @@ export const getOrders = () => {
     return database.customOrders.map(order => ({...order}))
 }
 
+
+
 export const setToppings = (id) => {
-    return database.orderBuilder.toppingId = id
+    database.orderBuilder.toppingId = id
 }
 
 export const setCones = (id) => {
-    return database.orderBuilder.coneId = id
+    database.orderBuilder.coneId = id
 }
 
 export const setFlavors = (id) => {
-    return database.orderBuilder.flavorId = id
+    database.orderBuilder.flavorId = id
 }
 
 

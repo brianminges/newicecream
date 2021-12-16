@@ -6,7 +6,7 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "topping") {
-            setToppings(parseInt(event.target.name))
+            setToppings(parseInt(event.target.value))
     }
     }
 )

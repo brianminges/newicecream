@@ -1,34 +1,35 @@
 import { getOrders, getCones, getSizes, getFlavors, getToppings } from "./database.js"
 
-const cones = getCones()
-const sizes = getSizes()
-const flavors = getFlavors()
-const toppings = getToppings()
-const orders = getOrders()
 
 
-const buildOrderListItem = (order) => {
 
 
+export const buildOrderListItem = (order) => {
+
+    
     // Remember that the function you pass to find() must return true/false
+    const cones = getCones()
     const foundCone = cones.find(
         (cone) => {
             return cone.id === order.coneId
         }
     )
 
+    // const sizes = getSizes()
     // const foundSize = sizes.find(
     //     (size) => {
     //         return size.id === order.sizeId
     //     }
     // )
 
+    const flavors = getFlavors()
     const foundFlavor = flavors.find(
         (flavor) => {
             return flavor.id === order.flavorId
         }
     )
 
+    const toppings = getToppings()
     const foundTopping = toppings.find(
         (topping) => {
             return topping.id === order.toppingId
