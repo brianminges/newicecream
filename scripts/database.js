@@ -18,10 +18,10 @@ const database = {
         { id: 4, type: "Cereal Milk", price: 6 } 
     ],
     sizes: [
-        { id: 1, type: "a", price: 1 },
-        { id: 2, type: "b", price: 1 },
-        { id: 3, type: "c", price: 1 },
-        { id: 4, type: "d", price: 1 } 
+        { id: 1, name: "Mini Me", price: 1.50 },
+        { id: 2, name: "Small Fry", price: 2.75 },
+        { id: 3, name: "Average Joe", price: 4.00 },
+        { id: 4, name: "Monstrosity", price: 6.50 } 
     ],
     toppings: [
         { id: 1, name: "sprinkles", price: .50},
@@ -53,6 +53,8 @@ export const getCones = () => {
     return database.cones.map(cone => ({...cone}))
 }
 
+
+//  Getters:
 export const getSizes = () => {
     return database.sizes.map(size => ({...size}))
 }
@@ -65,6 +67,11 @@ export const getOrders = () => {
     return database.customOrders.map(order => ({...order}))
 }
 
+
+//  Setters:
+    export const setSize = (id) => {
+        database.orderBuilder.sizeId = id
+    }
 
 
 export const setToppings = (id) => {
@@ -97,6 +104,10 @@ export const addCustomOrder = () => {
     // Reset the temporary state for user choices
     database.orderBuilder = {}
 
+
+    export const setCones = (id) => {
+    database.orderBuilder.conesId = id
+    }
+
     // Broadcast a notification that permanent state has changed
     document.dispatchEvent(new CustomEvent("stateChanged"))
-}
