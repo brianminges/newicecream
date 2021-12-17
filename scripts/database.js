@@ -103,11 +103,7 @@ export const addCustomOrder = () => {
 
     // Reset the temporary state for user choices
     database.orderBuilder = {}
-
-
-    export const setCones = (id) => {
-    database.orderBuilder.conesId = id
-    }
+   
 
     // Broadcast a notification that permanent state has changed
-    document.dispatchEvent(new CustomEvent("stateChanged"))
+    document.dispatchEvent(new CustomEvent("stateChanged"))}

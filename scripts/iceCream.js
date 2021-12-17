@@ -1,6 +1,6 @@
 import { Flavors } from "./flavors.js"
 import { Cones} from "./cones.js"
-import { orders } from "./orders.js"
+import { Orders } from "./orders.js"
 import { Toppings } from "./toppings.js"
 import { Sizes } from "./sizes.js"
 import { addCustomOrder } from "./database.js"
